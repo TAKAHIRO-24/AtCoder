@@ -13,21 +13,23 @@ def tax_increase():
     tax_excluded_price_list1 = list()
     tax_excluded_price_list2 = list()
     # 消費税率 8%
-    tax_excluded_price_low = 25 * A / 2 # 税抜き価格1
-    tax_excluded_price_low = int(tax_excluded_price_low) # 小数点以下切り捨て1
-    tax_excluded_price_high = 25 * (A+1) / 2 # 税抜き価格2
-    tax_excluded_price_high = int(tax_excluded_price_high) # 小数点以下切り捨て2
-    # 税抜き価格の取り得る範囲
-    for i in range(tax_excluded_price_low, tax_excluded_price_high+1):
-        tax_excluded_price_list1.append(i)
+    tax_excluded_price_low1 = 25 * A / 2 # 税抜き価格1
+    tax_excluded_price_low2 = int(tax_excluded_price_low1) # 小数点以下切り捨て1
+    tax_excluded_price_high1 = 25 * (A+1) / 2 # 税抜き価格2
+    tax_excluded_price_high2 = int(tax_excluded_price_high1) # 小数点以下切り捨て2
+    # 税抜き価格の取り得る範囲 
+    for i in range(tax_excluded_price_low2, tax_excluded_price_high2+1):
+        if tax_excluded_price_low1 <= tax_excluded_price_low2 and tax_excluded_price_high2 <= tax_excluded_price_high1:
+            tax_excluded_price_list1.append(i)
     # 消費税率 10%
-    tax_excluded_price_low = 10 * B # 税抜き価格1
-    tax_excluded_price_low = int(tax_excluded_price_low) # 小数点以下切り捨て1
-    tax_excluded_price_high = 10 * (B+1) # 税抜き価格2
-    tax_excluded_price_high = int(tax_excluded_price_high) # 小数点以下切り捨て2
-    # 税抜き価格の取り得る範囲
-    for i in range(tax_excluded_price_low, tax_excluded_price_high+1):
-        tax_excluded_price_list2.append(i)
+    tax_excluded_price_low1 = 10 * B # 税抜き価格1
+    tax_excluded_price_low2 = int(tax_excluded_price_low1) # 小数点以下切り捨て1
+    tax_excluded_price_high1 = 10 * (B+1) # 税抜き価格2
+    tax_excluded_price_high2 = int(tax_excluded_price_high1) # 小数点以下切り捨て2
+    # 税抜き価格の取り得る範囲 
+    for i in range(tax_excluded_price_low2, tax_excluded_price_high2+1):
+        if tax_excluded_price_low1 <= tax_excluded_price_low2 and tax_excluded_price_high2 <= tax_excluded_price_high1:
+            tax_excluded_price_list1.append(i)
     # 最も小さい金額で条件を満たすもの
     for i in tax_excluded_price_list1:
         if i in tax_excluded_price_list2:
