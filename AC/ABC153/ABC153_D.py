@@ -1,3 +1,5 @@
+import math
+
 def caracal_vs_monster():
     """
     2**0 個                       5
@@ -10,13 +12,8 @@ def caracal_vs_monster():
     """
     # 入力
     H = int(input())
-    # H / 2 の何回目で1以下になるか
-    count = 0
-    while True:
-        H = H / 2
-        count += 1
-        if H == 1:
-            break
+    # H / 2 の何回目で1になるか
+    count = int(math.log2(H))
     # 攻撃回数
     attack_count = 0
     for i in range(count+1):
