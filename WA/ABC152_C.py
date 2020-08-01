@@ -5,11 +5,16 @@ def low_elements():
     # 初期処理
     joken_list = [True] * N
     # 処理
+    # for i in range(N):
+    #     for j in range(0, i):
+    #         if not(P[i] <= P[j]):
+    #             joken_list[i] = False
+    #             break
+    # P[0]~P[j] の最小値がP[i]より大きければいい
     for i in range(N):
-        for j in range(0, i):
-            if not(P[i] <= P[j]):
-                joken_list[i] = False
-                break
+        min_num = min(P[0:i+1])
+        if not(P[i] <= min_num):
+            joken_list[i] = False
     # 条件を満たすiの個数
     count = 0
     for joken in joken_list:
