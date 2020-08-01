@@ -16,6 +16,7 @@ def low_elements():
         min_num = min(P[0:i+1])
         if P[i] <= min_num:
             count += 1
+            break
             # joken_list[i] = False
     # # 条件を満たすiの個数
     # count = 0
