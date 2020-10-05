@@ -25,15 +25,22 @@ def one_stroke_path():
     for one_case in permutations_list:
         is_ok = False
         if one_case[0] == 1:
+            # 順序を一つずつ取り出す
             for i in range(len(one_case)-1):
+                # 道を一つずつ取り出す
                 for j in range(M):
+                    # 頂点を両端に持つ道を探す
                     if (one_case[i] == a[j] and one_case[i+1] == b[j]) or (one_case[i] == b[j] and one_case[i+1] == a[j] ):
+                        # 頂点を両端に持つ道があればbreak
                         is_ok = True
                         break
                     else:
+                        # なければほかの道を探す
                         is_ok = False
+                # 全ての道の両端に頂点が該当しなければ、そのone_caseはNO
                 if is_ok == False:
                     break
+        # one_caseの先頭が１以外はNO
         else:
             is_ok = False
         if is_ok:
